@@ -1,0 +1,149 @@
+<app-spinner *ngIf="loading$ | async"></app-spinner>
+
+<section fxLayoutAlign="center">
+  <mat-card>
+   <form
+     fxLayout="column"
+     fxLayoutAlign="center center"
+     [formGroup]="formRegister"
+     (ngSubmit)="registrarUsuario()"
+     fxLayoutGap="10px"
+   >
+     <mat-form-field>
+       <mat-label>Ingrese Nombres:</mat-label>
+       <input
+         type="text"
+         formControlName="nombres"
+
+         required
+         placeholder="Ingrese nombre"
+         matInput
+       />
+       <mat-error>Debe ingresar su nombre</mat-error>
+     </mat-form-field>
+
+     <mat-form-field>
+       <mat-label>Ingrese Apellido Paterno :</mat-label>
+       <input
+         type="text"
+         formControlName="apellidoPaterno"
+
+         required
+         placeholder="Ingrese apellidos"
+         matInput
+       />
+       <mat-error>Debe ingresar su apellido</mat-error>
+     </mat-form-field>
+     <mat-form-field>
+      <mat-label>Ingrese Apellido Materno</mat-label>
+      <input
+        type="text"
+        formControlName="apellidoMaterno"
+
+        required
+        placeholder="Ingrese su apellido"
+        matInput
+      />
+      <mat-error>Debe ingresar su apellido</mat-error>
+    </mat-form-field>
+
+     <mat-form-field>
+       <mat-label>Ingrese Username</mat-label>
+       <input
+         type="text"
+         formControlName="username"
+
+         required
+         placeholder="vaxidrez"
+         matInput
+       />
+       <mat-error>Debe ingresar un username</mat-error>
+     </mat-form-field>
+
+      <mat-form-field>
+       <mat-label>Ingrese Telefono</mat-label>
+       <input
+         type="text"
+         formControlName="telefono"
+         required
+         placeholder="98036985654"
+         matInput
+       />
+       <mat-error>Debe ingresar su telefono</mat-error>
+     </mat-form-field>
+     <mat-form-field>
+      <mat-label>Direccion</mat-label>
+      <input
+        type="text"
+        formControlName="direccion"
+        required
+        placeholder="Dirección"
+        matInput
+      />
+      <mat-error>Debe ingresar su N° Documento</mat-error>
+    </mat-form-field>
+     <mat-form-field>
+      <mat-label>Ingrese E-Mail</mat-label>
+      <input
+        type="email"
+        formControlName="email"
+        placeholder=""
+        matInput
+        required
+
+      />
+     <!-- <mat-error *ngIf="emailInput.hasError('required')"
+        >El email no puede estar en blanco</mat-error
+      >
+      <mat-error *ngIf="!emailInput.hasError('required')"
+        >El email es invalido</mat-error
+      >-->
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select formControlName="tipoDocumento" placeholder="Seleccionar">
+        <mat-option value="0">Seleccionar</mat-option>
+        <mat-option *ngFor="let opcion of listaTipoDocumento" [value]="opcion.id">
+          {{ opcion.abreviatura }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>N° Documento</mat-label>
+      <input
+        type="text"
+        formControlName="numeroDocumento"
+        required
+        placeholder=" N° Documento"
+        matInput
+      />
+      <mat-error>Debe ingresar su N° Documento</mat-error>
+    </mat-form-field>
+    <mat-form-field hintLabel="El password debe tener 7 caracteres">
+      <mat-label>Ingrese Password</mat-label>
+      <input
+        type="password"
+        formControlName="password"
+        placeholder="Ingresa Password"
+        required
+        matInput
+        minlength="7"
+      />
+
+      <mat-error>El password debe tener mas de 7 caracteres</mat-error>
+    </mat-form-field>
+     <mat-form-field hintLabel="El password debe tener 7 caracteres">
+       <mat-label>Confirme Password</mat-label>
+       <input
+         type="password"
+         formControlName="rePassword"
+         placeholder="Confirme Password"
+         required
+         minlength="7"
+         matInput
+       />
+       <mat-error>El password debe tener mas de 7 caracteres</mat-error>
+     </mat-form-field>
+     <button type="submit" mat-raised-button color="primary" [disabled]="">Guardar</button>
+   </form>
+    </mat-card>
+ </section>

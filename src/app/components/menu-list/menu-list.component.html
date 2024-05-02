@@ -1,0 +1,58 @@
+<mat-nav-list>
+
+  <a *ngIf="isAuthorized"  mat-list-item (click)="closeMenu()" routerLink="/">
+    <mat-icon>home</mat-icon>
+    <span class="navegacion-list-label">Home</span>
+  </a>
+
+  <a *ngIf="!isAuthorized" mat-list-item (click)="closeMenu()" routerLink="auth/login">
+    <mat-icon>login</mat-icon>
+    <span class="navegacion-list-label">Inicio Sesion</span>
+  </a>
+
+  <a *ngIf="!isAuthorized" mat-list-item (click)="closeMenu()" routerLink="auth/registration">
+    <mat-icon>how_to_register</mat-icon>
+    <span class="navegacion-list-label">Registrar</span>
+  </a>
+
+  <a *ngIf="isAuthorized" mat-list-item (click)="closeMenu()">
+    <mat-icon>contact_support</mat-icon>
+    <span class="navegacion-list-label">Contacto</span>
+  </a>
+
+
+  <a *ngIf="isAuthorized" mat-list-item (click)="closeMenu()" routerLink="inmueble/nuevo">
+    <mat-icon>add</mat-icon>
+    <span class="navegacion-list-label">Nuevo Inmueble</span>
+  </a>
+
+  <a *ngIf="isAuthorized" mat-list-item (click)="closeMenu()" routerLink="inmueble/list">
+    <mat-icon>add</mat-icon>
+    <span class="navegacion-list-label">Inmuebles</span>
+  </a>
+
+  <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+    <!-- This is the tree node template for leaf nodes -->
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+      <!-- use a disabled button to provide padding for tree leaf -->
+      <button mat-icon-button ></button>
+      {{node.name}}
+    </mat-tree-node>
+    <!-- This is the tree node template for expandable nodes -->
+    <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+      <button mat-icon-button matTreeNodeToggle
+              [attr.aria-label]="'Toggle ' + node.name" [routerLink]="node.ruta">
+        <mat-icon class="mat-icon-rtl-mirror">
+          {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+        </mat-icon>
+      </button>
+      {{node.name}}
+    </mat-tree-node>
+  </mat-tree>
+
+  <a *ngIf="isAuthorized" mat-list-item (click)="onSignOut()" (click)="closeMenu()">
+    <mat-icon>logout</mat-icon>
+    <span class="navegacion-list-label">Salir Sesion</span>
+  </a>
+
+</mat-nav-list>
