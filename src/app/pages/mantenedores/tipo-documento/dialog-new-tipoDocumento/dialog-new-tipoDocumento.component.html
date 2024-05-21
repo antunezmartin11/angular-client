@@ -1,0 +1,40 @@
+<h2 mat-dialog-title>Registrar tipo de documento</h2>
+<mat-dialog-content class="mat-typography">
+  <div class="example-container">
+    <form class="filter-form formSearch"  [formGroup]="formRegistro">
+
+
+         <div class="example-form-fields">
+           <mat-form-field
+               [hideRequiredMarker]="hideRequiredControl.value"
+               [floatLabel]="getFloatLabelValue()">
+             <input matInput placeholder="Ingresar Nombre" name="nombre" formControlName="nombre">
+             <mat-error>Debe ingresar un nombre</mat-error>
+            </mat-form-field>
+
+           <mat-form-field [floatLabel]="getFloatLabelValue()">
+             <mat-label>Ingresar Abreviatura</mat-label>
+             <input matInput placeholder="Ingresar Abreviatura" name="abreviatura" formControlName="abreviatura">
+             <mat-error>Debe ingresar una abreviatura</mat-error>
+          </mat-form-field>
+
+           <mat-form-field
+
+               [floatLabel]="getFloatLabelValue()">
+             <mat-select formControlName="estado" placeholder="Seleccione">
+               <mat-option value="true">Activo</mat-option>
+               <mat-option value="false">Inactivo</mat-option>
+             </mat-select>
+             <mat-error>Debe seleccionar un estado</mat-error>
+           </mat-form-field>
+         </div>
+
+       </form>
+  </div>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="primary" (click)="registrar()" *ngIf="!esEditar">Registrar</button>
+  <button mat-raised-button color="secondary-1" (click)="modificarTipoDocumento()" *ngIf="esEditar">Modificar</button>
+</mat-dialog-actions>

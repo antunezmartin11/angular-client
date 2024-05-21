@@ -30,18 +30,22 @@
     <mat-icon>add</mat-icon>
     <span class="navegacion-list-label">Inmuebles</span>
   </a>
-
+  <a *ngIf="isAuthorized" mat-list-item (click)="closeMenu()" routerLink="mantenedores/tipoDocumento">
+    <mat-icon>add</mat-icon>
+    <span class="navegacion-list-label">Tipo Documento</span>
+  </a>
+  <h3 style="padding-left: 20px;">Mantenedores</h3>
   <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
     <!-- This is the tree node template for leaf nodes -->
     <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
       <!-- use a disabled button to provide padding for tree leaf -->
-      <button mat-icon-button ></button>
+      <button mat-icon-button disabled></button>
       {{node.name}}
     </mat-tree-node>
     <!-- This is the tree node template for expandable nodes -->
     <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
       <button mat-icon-button matTreeNodeToggle
-              [attr.aria-label]="'Toggle ' + node.name" [routerLink]="node.ruta">
+              [attr.aria-label]="'Toggle ' + node.name" [routerLink]="node.ruta" [routerLinkActive]="'active-link'">
         <mat-icon class="mat-icon-rtl-mirror">
           {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
         </mat-icon>

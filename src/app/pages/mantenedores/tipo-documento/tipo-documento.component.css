@@ -1,0 +1,49 @@
+table {
+  width: 100%;
+}
+
+.formFilter{
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.formSearch{
+  width: 100% !important;
+  margin-left: 20px;
+}
+.inputFilter{
+  width: 50%!important;
+}
+.filter-and-add-container {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 10px;
+
+}
+
+.add-button {
+  margin-top: 10px;
+  margin-left: auto; /* Esto coloca el botón "Agregar" en la parte superior derecha */
+}
+.activo {
+  background-color: green;
+  color: white;
+  border-radius: 10px; /* Border radius ovalado */
+  padding: 3px 6px; /* Reducir el padding */
+  font-size: 14px; /* Reducir el tamaño de fuente */
+  line-height: 1;
+  padding-bottom: 5px;
+  height: 15px;
+}
+
+.inactivo {
+  background-color: red;
+  color: white;
+  border-radius: 10px; /* Border radius ovalado */
+  padding: 3px 6px; /* Reducir el padding */
+  font-size: 14px; /* Reducir el tamaño de fuente */
+  line-height: 1;
+  padding-bottom: 5px;
+  height: 15px;
+}

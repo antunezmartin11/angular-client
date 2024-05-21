@@ -18,6 +18,10 @@ const routes: Routes = [
         loadChildren: () => import('./pages/static/static.module').then(m=>m.StaticModule)
       },
       {
+        path: 'mantenedores',
+        loadChildren: () => import('./pages/mantenedores/mantenedores.module').then(m=>m.MantenedoresModule)
+      },
+      {
         path: '',
         pathMatch: 'full',
         redirectTo: 'static/welcome'

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-import { TipoDocumentoServiceService } from '@app/services/backend/TipoDocumentoService.service';
+import { TipoDocumentoRequest } from '@app/models/backend/maestros/clases-maestro';
+import { TipoDocumentoService } from '@app/services/backend/TipoDocumento.service';
 import * as fromRoot from '@app/store';
 import * as fromUser from '@app/store/user';
 import { select, Store } from '@ngrx/store';
@@ -17,7 +18,7 @@ export class RegistrationComponent implements OnInit {
   formRegister!: FormGroup
   constructor(
     private store: Store<fromRoot.State>,
-    private tipoDocumentoService: TipoDocumentoServiceService
+    private tipoDocumentoService: TipoDocumentoService
   ) { }
   init(){
     this.formRegister = new FormGroup({
@@ -41,7 +42,9 @@ export class RegistrationComponent implements OnInit {
   }
 
   obtenerListaTipoDocumento(){
-    this.tipoDocumentoService.listarTipoDocumentoService().subscribe(
+    let tDoc: TipoDocumentoRequest = new TipoDocumentoRequest
+
+    this.tipoDocumentoService.listarTipoDocumentoService(tDoc).subscribe(
       {
         next: (data:any) => {
           console.log(data);

@@ -7,7 +7,7 @@ const TREE_DATA: Mantenedor[] = [
     name: 'Mantenedor 1',
     ruta: '/mantenedor-1',
     children: [
-      { name: 'Tipo documento', ruta: 'inmueble/nuevo' },
+      { name: 'Tipo documento', ruta: 'mantenedores/tipoDocumento' },
       { name: 'Tipo contrato', ruta: '/submantenedor-2' }
     ]
   },
@@ -15,7 +15,7 @@ const TREE_DATA: Mantenedor[] = [
     name: 'Mantenedor 2',
     ruta: '/mantenedor-2',
     children: [
-      { name: 'Submantenedor 3', ruta: '' },
+      { name: 'Submantenedor 3', ruta: 'mantenedores/tipoDocumento' },
       { name: 'Submantenedor 4', ruta: '/submantenedor-4' }
     ]
   }
