@@ -8,7 +8,16 @@ const routes: Routes = [
     loadChildren:()=> import('./tipo-documento/tipo-documento.module').then(m=>m.TipoDocumentoModule),
     canActivate: [AuthGuard]
   },
-
+  {
+    path : 'area',
+    loadChildren:()=> import('./area/area.module').then(m=>m.AreaModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path : 'tipoContrato',
+    loadChildren:()=> import('./tipo-contrato/tipo-contrato.module').then(m=>m.TipoContratoModule),
+    canActivate: [AuthGuard]
+  },
 ];
 
 @NgModule({

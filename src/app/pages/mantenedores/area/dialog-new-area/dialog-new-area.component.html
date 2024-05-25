@@ -1,0 +1,56 @@
+<h2 mat-dialog-title>Registrar nueva area</h2>
+<mat-dialog-content class="mat-typography">
+  <div class="example-container">
+    <form class="filter-form formSearch"  [formGroup]="formRegistro">
+
+
+         <div class="example-form-fields">
+           <mat-form-field
+               [hideRequiredMarker]="hideRequiredControl.value"
+               [floatLabel]="getFloatLabelValue()">
+             <input matInput placeholder="Ingresar Nombre" name="nombre" formControlName="nombre">
+             <mat-error>Debe ingresar un nombre</mat-error>
+            </mat-form-field>
+
+           <mat-form-field [floatLabel]="getFloatLabelValue()">
+             <mat-label>Ingresar Descripción</mat-label>
+             <input matInput placeholder="Ingresar descripción" name="descripcion" formControlName="descripcion">
+             <mat-error>Debe ingresar una descripción</mat-error>
+          </mat-form-field>
+
+           <mat-form-field
+
+               [floatLabel]="getFloatLabelValue()">
+             <mat-select formControlName="estado" placeholder="Seleccione">
+               <mat-option value="true">Activo</mat-option>
+               <mat-option value="false">Inactivo</mat-option>
+             </mat-select>
+             <mat-error>Debe seleccionar un estado</mat-error>
+           </mat-form-field>
+         </div>
+         <div class="example-form-fields">
+          <mat-form-field
+              [hideRequiredMarker]="hideRequiredControl.value"
+              [floatLabel]="getFloatLabelValue()">
+            <input matInput placeholder="Ingresar Horas" name="horas" formControlName="horas">
+            <mat-error>Debe ingresar la cantidad de horas</mat-error>
+           </mat-form-field>
+
+          <mat-form-field [floatLabel]="getFloatLabelValue()">
+            <mat-select formControlName="grado" placeholder="Seleccione">
+              <mat-option *ngFor="let item of listaGrados" value="{{item.id}}">{{item.nombre}}</mat-option>
+            </mat-select>
+            <mat-error>Debe seleccionar un grado</mat-error>
+         </mat-form-field>
+
+        </div>
+
+       </form>
+  </div>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="primary" (click)="registrarArea()" *ngIf="!esEditar">Registrar</button>
+  <button mat-raised-button color="secondary-1" (click)="modificarArea()" *ngIf="esEditar">Modificar</button>
+</mat-dialog-actions>

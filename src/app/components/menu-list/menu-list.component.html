@@ -32,7 +32,15 @@
   </a>
   <a *ngIf="isAuthorized" mat-list-item (click)="closeMenu()" routerLink="mantenedores/tipoDocumento">
     <mat-icon>add</mat-icon>
-    <span class="navegacion-list-label">Tipo Documento</span>
+    <span class="navegacion-list-label">Tipo documento</span>
+  </a>
+  <a *ngIf="isAuthorized" mat-list-item (click)="closeMenu()" routerLink="mantenedores/area">
+    <mat-icon>add</mat-icon>
+    <span class="navegacion-list-label">Area</span>
+  </a>
+  <a *ngIf="isAuthorized" mat-list-item (click)="closeMenu()" routerLink="mantenedores/tipoContrato">
+    <mat-icon>add</mat-icon>
+    <span class="navegacion-list-label">Tipo contrato</span>
   </a>
   <h3 style="padding-left: 20px;">Mantenedores</h3>
   <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
